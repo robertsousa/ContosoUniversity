@@ -15,8 +15,8 @@ namespace ContosoUniversity
     {
         public static void Main(string[] args)
         {
-            //var host = CreateHostBuilder(args).Build();
             var host = CreateHostBuilder(args).Build();
+
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -32,9 +32,30 @@ namespace ContosoUniversity
                 }
 
             }
-            //CreateDbIfNotExists(host);
+           // CreateDbIfNotExists(host);
             host.Run();
+
         }
+
+        //private static void CreateWebHostBuilder(string[] args)
+        //{
+        //    var host = CreateWebHostBuilder(args).Build();
+
+        //    using (var scope = host.Services.CreateScope())
+        //    {
+        //        var services = scope.ServiceProvider;
+        //        try
+        //        {
+        //            var context = services.GetRequiredService<SchoolContext>();
+        //            DbInitialize.Initialize(context);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            var logger = services.GetRequiredService<ILogger<Program>>();
+        //            logger.LogError(ex, "An error occurred while seeding the database.");
+        //        }
+        //    }
+        //}
 
         private static void CreateDbIfNotExists(IHost host)
         {
