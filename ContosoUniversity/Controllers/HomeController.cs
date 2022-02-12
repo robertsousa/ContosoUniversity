@@ -1,6 +1,8 @@
 ﻿using ContosoUniversity.Data;
 using ContosoUniversity.Models;
+using ContosoUniversity.Models.SchoolViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -29,6 +31,19 @@ namespace ContosoUniversity.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public async Task<ActionResult> About()
+        {
+            IQueryable<EnrollmentDateGroup> data =
+                from student in _context.Students
+                group student by student.EnrollmentDate into dateGroup
+                select new EnrollmentDateGroup()
+                {
+                    EnrollmentDate = dateGroup.Key,
+                    StudentCount = dateGroup.Count()
+                };
+            return View(await data.AsNoTracking().ToListAsync());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
