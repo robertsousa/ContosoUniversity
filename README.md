@@ -3,17 +3,11 @@
 ![Badge](https://img.shields.io/static/v1?label=STATUS&message=Em%20DESENVOLVIMENTO&color=Green)
 
 ### Descrição
-<p align="justify">CRUD de filmes, em ASP.NET Core MVC. </p>
+<p align="justify">CRUD de uma universidade ficticia, em ASP.NET Core MVC, cadastro de Students, Courses, Instructors e Dapartments. </p>
 
 ##
-#### Dependencias
+
  
 ##
-
-#### Bibliotecas utilizadas
-📚 EntityFramework Core <br/>
-📚 EntityFrameworkCore.Design </br>
-📚 EntityFrameworkCore.SqlServer</br>
-📚 EntityFrameworkCore.Tools
 
 ##
